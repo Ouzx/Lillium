@@ -10,46 +10,13 @@ import {
 } from "react-native";
 // import { TouchableOpacity } from "react-native-gesture-handler";
 import { BG, DATA } from "./slides";
+import ScrollIndicator from "./ScrollIndicator";
 
 const { width, height } = Dimensions.get("screen");
 
 interface scrollProps {
   scrollX: Animated.Value;
 }
-
-const Indicator: React.FC<scrollProps> = ({ scrollX }) => {
-  return (
-    <View style={{ position: "absolute", bottom: 100, flexDirection: "row" }}>
-      {DATA.map((_, i) => {
-        const inputRange = [(i - 1) * width, i * width, (i + 1) * width];
-        const scale = scrollX.interpolate({
-          inputRange,
-          outputRange: [0.8, 1.4, 0.8],
-          extrapolate: "clamp",
-        });
-        const opacity = scrollX.interpolate({
-          inputRange,
-          outputRange: [0.6, 0.9, 0.6],
-          extrapolate: "clamp",
-        });
-        return (
-          <Animated.View
-            key={`indocator-${i}`}
-            style={{
-              height: 10,
-              width: 10,
-              borderRadius: 5,
-              backgroundColor: "#fff",
-              margin: 10,
-              opacity,
-              transform: [{ scale }],
-            }}
-          />
-        );
-      })}
-    </View>
-  );
-};
 
 const Backdrop: React.FC<scrollProps> = ({ scrollX }) => {
   const backgroundColor = scrollX.interpolate({
@@ -85,7 +52,7 @@ const Square: React.FC<scrollProps> = ({ scrollX }) => {
         width: height,
         height: height,
         backgroundColor: "#fff",
-        borderRadius: 86,
+        borderRadius: 9999,
         top: -height * 0.6,
         left: -height * 0.3,
         position: "absolute",
@@ -106,7 +73,7 @@ export default function Onboarding() {
 
   return (
     <View style={styles.container}>
-      <StatusBar hidden />
+      <StatusBar barStyle={"light-content"} />
       <Backdrop scrollX={scrollX} />
       <Square scrollX={scrollX} />
       <Animated.FlatList
@@ -145,7 +112,12 @@ export default function Onboarding() {
         )}
       />
 
-      <Indicator scrollX={scrollX} />
+      <ScrollIndicator
+        scrollX={scrollX}
+        data={DATA}
+        dotStyle={{ backgroundColor: "white" }}
+        containerStyle={{ bottom: 100 }}
+      />
     </View>
   );
 }
