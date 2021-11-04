@@ -1,16 +1,15 @@
 import React from "react";
 import {
   StyleSheet,
-  Text,
   View,
-  Image,
   Animated,
   Dimensions,
   StatusBar,
 } from "react-native";
-// import { TouchableOpacity } from "react-native-gesture-handler";
+
 import { BG, DATA } from "./slides";
 import ScrollIndicator from "./ScrollIndicator";
+import Slide from "./Slide";
 
 const { width, height } = Dimensions.get("screen");
 
@@ -90,26 +89,7 @@ export default function Onboarding() {
         showsHorizontalScrollIndicator={false}
         data={DATA}
         keyExtractor={(item) => item.key}
-        renderItem={({ item }) => (
-          <View style={{ width, alignItems: "center", padding: 20 }}>
-            <View style={{ flex: 0.7, justifyContent: "center" }}>
-              <Image source={{ uri: item.image }} style={styles.image} />
-            </View>
-            <View style={{ flex: 0.3 }}>
-              <Text
-                style={{
-                  fontWeight: "800",
-                  fontSize: 28,
-                  marginBottom: 10,
-                  color: "#fff",
-                }}
-              >
-                {item.title}
-              </Text>
-              <Text style={{ fontWeight: "300" }}>{item.description}</Text>
-            </View>
-          </View>
-        )}
+        renderItem={({ item }) => <Slide {...item} />}
       />
 
       <ScrollIndicator
@@ -128,10 +108,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-  },
-  image: {
-    width: width / 2,
-    height: width / 2,
-    resizeMode: "contain",
   },
 });

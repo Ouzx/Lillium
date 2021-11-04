@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import Onboarding from "./src/Authentication/Onboarding";
+import Onboarding from "./src/Onboarding";
 
 export default function App() {
   return (
