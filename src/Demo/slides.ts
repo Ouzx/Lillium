@@ -1,4 +1,4 @@
-const BG = ["#A5BBFF", "#DDBEFE", "#FF63ED", "#B98EFF"];
+const BG = ["#FF63ED", "#DDBEFE", "#FF63ED", "#B98EFF"];
 const DATA = [
   {
     key: "3571572",

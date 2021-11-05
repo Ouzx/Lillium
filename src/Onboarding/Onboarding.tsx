@@ -1,17 +1,13 @@
 import React from "react";
-import {
-  StyleSheet,
-  View,
-  Animated,
-  Dimensions,
-  StatusBar,
-} from "react-native";
+import { StyleSheet, View, Animated, StatusBar } from "react-native";
+import { Button } from "react-native-elements";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import { BG, DATA } from "./slides";
+import { BG, DATA } from "../Demo";
 import ScrollIndicator from "./ScrollIndicator";
 import Slide from "./Slide";
 
-const { width, height } = Dimensions.get("screen");
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from "../utils";
 
 interface scrollProps {
   scrollX: Animated.Value;
@@ -19,7 +15,7 @@ interface scrollProps {
 
 const Backdrop: React.FC<scrollProps> = ({ scrollX }) => {
   const backgroundColor = scrollX.interpolate({
-    inputRange: BG.map((_, i) => i * width),
+    inputRange: BG.map((_, i) => i * SCREEN_WIDTH),
     outputRange: BG.map((bg) => bg),
   });
   return (
@@ -31,7 +27,10 @@ const Backdrop: React.FC<scrollProps> = ({ scrollX }) => {
 
 const Square: React.FC<scrollProps> = ({ scrollX }) => {
   const YOLO = Animated.modulo(
-    Animated.divide(Animated.modulo(scrollX, width), new Animated.Value(width)),
+    Animated.divide(
+      Animated.modulo(scrollX, SCREEN_WIDTH),
+      new Animated.Value(SCREEN_WIDTH)
+    ),
     1
   );
 
@@ -42,18 +41,18 @@ const Square: React.FC<scrollProps> = ({ scrollX }) => {
 
   const translateX = YOLO.interpolate({
     inputRange: [0, 0.5, 1],
-    outputRange: [0, -height, 0],
+    outputRange: [0, -SCREEN_HEIGHT, 0],
   });
 
   return (
     <Animated.View
       style={{
-        width: height,
-        height: height,
+        width: SCREEN_HEIGHT,
+        height: SCREEN_HEIGHT,
         backgroundColor: "#fff",
         borderRadius: 9999,
-        top: -height * 0.6,
-        left: -height * 0.3,
+        top: -SCREEN_HEIGHT * 0.6,
+        left: -SCREEN_HEIGHT * 0.3,
         position: "absolute",
         transform: [
           {
@@ -67,6 +66,7 @@ const Square: React.FC<scrollProps> = ({ scrollX }) => {
     />
   );
 };
+
 export default function Onboarding() {
   const scrollX = React.useRef(new Animated.Value(0)).current;
 
@@ -92,11 +92,21 @@ export default function Onboarding() {
         renderItem={({ item }) => <Slide {...item} />}
       />
 
+      <View style={{ bottom: 70, flexDirection: "row" }}>
+        <Button
+          title=" Login"
+          type="outline"
+          buttonStyle={{ borderColor: "white" }}
+          titleStyle={{ color: "white" }}
+          icon={<MaterialCommunityIcons name="login" size={24} color="white" />}
+        />
+      </View>
+
       <ScrollIndicator
         scrollX={scrollX}
         data={DATA}
         dotStyle={{ backgroundColor: "white" }}
-        containerStyle={{ bottom: 100 }}
+        containerStyle={{ bottom: 25 }}
       />
     </View>
   );
