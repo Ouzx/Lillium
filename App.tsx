@@ -1,18 +1,27 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
 import Onboarding from "./src/Onboarding";
+
+const Stack = createNativeStackNavigator();
+
+const isSignedIn = false;
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Onboarding />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        {isSignedIn ? null : (
+          <Stack.Screen
+            name="Onboarding"
+            component={Onboarding}
+            options={{
+              headerShown: false,
+            }}
+          />
+        )}
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-  },
-});
