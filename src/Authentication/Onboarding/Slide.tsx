@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
-import { SCREEN_WIDTH } from "../utils";
+import { SCREEN_WIDTH } from "../../utils";
 
 interface SlideProps {
   title: string;

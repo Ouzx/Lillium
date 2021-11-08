@@ -3,11 +3,13 @@ import { StyleSheet, View, Animated, StatusBar } from "react-native";
 import { Button } from "react-native-elements";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import { BG, DATA } from "../Demo";
+import { BG, DATA } from "../../Demo";
 import ScrollIndicator from "./ScrollIndicator";
 import Slide from "./Slide";
 
-import { SCREEN_HEIGHT, SCREEN_WIDTH } from "../utils";
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from "../../utils";
+
+import { useNavigation } from "@react-navigation/native";
 
 interface scrollProps {
   scrollX: Animated.Value;
@@ -67,7 +69,7 @@ const Square: React.FC<scrollProps> = ({ scrollX }) => {
   );
 };
 
-export default function Onboarding() {
+export default function OnboardingScreen() {
   const scrollX = React.useRef(new Animated.Value(0)).current;
 
   return (
@@ -99,6 +101,9 @@ export default function Onboarding() {
           buttonStyle={{ borderColor: "white" }}
           titleStyle={{ color: "white" }}
           icon={<MaterialCommunityIcons name="login" size={24} color="white" />}
+          // onPress={() => {
+          //   useNavigation().navigate("signup");
+          // }}
         />
       </View>
 
