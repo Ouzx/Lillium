@@ -5,7 +5,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "svgr": "svgr ./assets/icons -d ./src/icons --native --svg-props \"className=\" --svgo-config .svgorc.json"
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.0.9",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@svgr/cli": "^5.5.0",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.64.12",
     "typescript": "~4.3.5"

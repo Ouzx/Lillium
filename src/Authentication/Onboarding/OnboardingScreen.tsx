@@ -42,7 +42,7 @@ const OnboardingScreen: React.FC<Props> = ({ navigation }) => {
 
       <View style={{ bottom: 70, flexDirection: "row" }}>
         <Button
-          title=" Sign In"
+          title=" Login / Register"
           type="outline"
           buttonStyle={{ borderColor: "white" }}
           titleStyle={{ color: "white" }}
