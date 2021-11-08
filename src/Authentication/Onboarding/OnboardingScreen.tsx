@@ -3,73 +3,19 @@ import { StyleSheet, View, Animated, StatusBar } from "react-native";
 import { Button } from "react-native-elements";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import { BG, DATA } from "../../Demo";
+import { DATA } from "../../Demo";
 import ScrollIndicator from "./ScrollIndicator";
 import Slide from "./Slide";
+import Backdrop from "./Backdrop";
+import Square from "./Square";
 
-import { SCREEN_HEIGHT, SCREEN_WIDTH } from "../../utils";
+import { Screens } from "../../Navigations";
 
-import { useNavigation } from "@react-navigation/native";
-
-interface scrollProps {
-  scrollX: Animated.Value;
+interface Props {
+  navigation: any;
 }
 
-const Backdrop: React.FC<scrollProps> = ({ scrollX }) => {
-  const backgroundColor = scrollX.interpolate({
-    inputRange: BG.map((_, i) => i * SCREEN_WIDTH),
-    outputRange: BG.map((bg) => bg),
-  });
-  return (
-    <Animated.View
-      style={[StyleSheet.absoluteFillObject, { backgroundColor }]}
-    />
-  );
-};
-
-const Square: React.FC<scrollProps> = ({ scrollX }) => {
-  const YOLO = Animated.modulo(
-    Animated.divide(
-      Animated.modulo(scrollX, SCREEN_WIDTH),
-      new Animated.Value(SCREEN_WIDTH)
-    ),
-    1
-  );
-
-  const rotate = YOLO.interpolate({
-    inputRange: [0, 0.5, 1],
-    outputRange: ["35deg", "0deg", "35deg"],
-  });
-
-  const translateX = YOLO.interpolate({
-    inputRange: [0, 0.5, 1],
-    outputRange: [0, -SCREEN_HEIGHT, 0],
-  });
-
-  return (
-    <Animated.View
-      style={{
-        width: SCREEN_HEIGHT,
-        height: SCREEN_HEIGHT,
-        backgroundColor: "#fff",
-        borderRadius: 9999,
-        top: -SCREEN_HEIGHT * 0.6,
-        left: -SCREEN_HEIGHT * 0.3,
-        position: "absolute",
-        transform: [
-          {
-            rotate,
-          },
-          {
-            translateX,
-          },
-        ],
-      }}
-    />
-  );
-};
-
-export default function OnboardingScreen() {
+const OnboardingScreen: React.FC<Props> = ({ navigation }) => {
   const scrollX = React.useRef(new Animated.Value(0)).current;
 
   return (
@@ -96,14 +42,14 @@ export default function OnboardingScreen() {
 
       <View style={{ bottom: 70, flexDirection: "row" }}>
         <Button
-          title=" Login"
+          title=" Sign In"
           type="outline"
           buttonStyle={{ borderColor: "white" }}
           titleStyle={{ color: "white" }}
           icon={<MaterialCommunityIcons name="login" size={24} color="white" />}
-          // onPress={() => {
-          //   useNavigation().navigate("signup");
-          // }}
+          onPress={() => {
+            navigation.navigate(Screens.LOGIN);
+          }}
         />
       </View>
 
@@ -115,7 +61,9 @@ export default function OnboardingScreen() {
       />
     </View>
   );
-}
+};
+
+export default OnboardingScreen;
 
 const styles = StyleSheet.create({
   container: {
