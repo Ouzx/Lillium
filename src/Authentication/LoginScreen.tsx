@@ -10,9 +10,13 @@ import { Input } from "react-native-elements";
 import { Feather } from "@expo/vector-icons";
 
 import { Container, Logo, PrimaryButton, TextButton } from "../Shared";
-import { Styles, Numbers, Colors } from "../utils";
+import { Styles, Numbers, Colors, Screens } from "../utils";
 
-export default function LoginScreen() {
+interface Props {
+  navigation: any;
+}
+
+export default function LoginScreen(props: Props) {
   const [isHide, setIsHide] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,7 +32,9 @@ export default function LoginScreen() {
         <Text style={[Styles.headingText, styles.headerText]}>
           {" New style to read \n book"}
         </Text>
-
+        <Text style={[Styles.headingText, styles.headerText]}>
+          {" Log In to your account"}
+        </Text>
         <View style={styles.loginContainer}>
           <Input
             placeholder="Email"
@@ -89,14 +95,14 @@ export default function LoginScreen() {
           <PrimaryButton
             title={"Log In"}
             onPress={() => {
-              console.log("Login");
+              // props.navigation.navigate(Screens.Home);
             }}
             Color={Colors.primary}
           />
           <PrimaryButton
-            title={"Sign Up"}
+            title={"New to lil? Sign Up"}
             onPress={() => {
-              console.log("Sign Up");
+              props.navigation.navigate(Screens.SIGNUP);
             }}
             Color={Colors.secondary}
           />

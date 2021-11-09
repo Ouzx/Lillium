@@ -2,7 +2,9 @@ enum Screens {
   ONBOARDING = "OnboardingScreen",
   LOGIN = "LoginScreen",
   SIGNUP = "SignupScreen",
-  HOME = "HomeScreen",
+  HOME = "Home",
+  SEARCH = "Search",
+  LIBRARY = "Library",
 }
 
 enum Stacks {

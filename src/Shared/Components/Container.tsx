@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, StatusBar } from "react-native";
+import { SafeAreaView, StatusBar, ScrollView } from "react-native";
 import { Styles, Colors } from "../../utils";
 
 interface Props {
@@ -10,7 +10,7 @@ const Container = ({ children }: Props) => {
   return (
     <SafeAreaView style={Styles.container}>
       <StatusBar barStyle="light-content" backgroundColor={Colors.mainBG} />
-      {children}
+      <ScrollView showsVerticalScrollIndicator={false}>{children}</ScrollView>
     </SafeAreaView>
   );
 };
