@@ -6,7 +6,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "svgr": "svgr ./assets/icons -d ./src/icons --native --svg-props \"className=\" --svgo-config .svgorc.json"
+    "svgr": "svgr ./assets/icons -d ./src/shared/icons --native --svg-props \"className=\" --svgo-config .svgorc.json"
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.0.9",

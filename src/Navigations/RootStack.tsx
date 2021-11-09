@@ -1,7 +1,9 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import { SignedStack, UnsignedStack, Stacks } from ".";
+import SignedStack from "./SignedStack";
+import UnsignedStack from "./UnsignedStack";
+import { Stacks } from "./Routes";
 
 const Stack = createNativeStackNavigator();
 export default function RootStack() {

@@ -7,13 +7,13 @@ import {
   OnboardingScreen,
 } from "../Authentication";
 
-import { Screens } from ".";
+import { Screens } from "./Routes";
 
 const Stack = createNativeStackNavigator();
 
 export default function Unsigned() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName={Screens.LOGIN}>
       <Stack.Screen
         name={Screens.ONBOARDING}
         component={OnboardingScreen}
@@ -21,8 +21,20 @@ export default function Unsigned() {
           headerShown: false,
         }}
       />
-      <Stack.Screen name={Screens.LOGIN} component={LoginScreen} />
-      <Stack.Screen name={Screens.REGISTER} component={RegisterScreen} />
+      <Stack.Screen
+        name={Screens.LOGIN}
+        component={LoginScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name={Screens.REGISTER}
+        component={RegisterScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
     </Stack.Navigator>
   );
 }
