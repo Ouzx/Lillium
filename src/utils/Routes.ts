@@ -1,7 +1,7 @@
 enum Screens {
   ONBOARDING = "OnboardingScreen",
   LOGIN = "LoginScreen",
-  REGISTER = "RegisterScreen",
+  SIGNUP = "SignupScreen",
   HOME = "HomeScreen",
 }
 

@@ -1,5 +1,5 @@
 import LoginScreen from "./LoginScreen";
-import RegisterScreen from "./RegisterScreen";
+import SignupScreen from "./SignupScreen";
 import OnboardingScreen from "./Onboarding/OnboardingScreen";
 
-export { LoginScreen, RegisterScreen, OnboardingScreen };
+export { LoginScreen, SignupScreen, OnboardingScreen };

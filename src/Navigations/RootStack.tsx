@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import SignedStack from "./SignedStack";
 import UnsignedStack from "./UnsignedStack";
-import { Stacks } from "./Routes";
+import { Stacks } from "../utils";
 
 const Stack = createNativeStackNavigator();
 export default function RootStack() {

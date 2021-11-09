@@ -17,9 +17,7 @@ const Indicator: React.FC<scrollProps> = ({
   containerStyle,
 }) => {
   return (
-    <View
-      style={[{ position: "absolute", flexDirection: "row" }, containerStyle]}
-    >
+    <View style={[{ flexDirection: "row" }, containerStyle]}>
       {data.map((_, i) => {
         const inputRange = [(i - 1) * width, i * width, (i + 1) * width];
         const scale = scrollX.interpolate({

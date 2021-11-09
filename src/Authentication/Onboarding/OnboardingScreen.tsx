@@ -1,7 +1,5 @@
 import React from "react";
 import { StyleSheet, View, Animated, StatusBar } from "react-native";
-import { Button } from "react-native-elements";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import { DATA } from "../../Demo";
 import ScrollIndicator from "./ScrollIndicator";
@@ -9,8 +7,9 @@ import Slide from "./Slide";
 import Backdrop from "./Backdrop";
 import Square from "./Square";
 
-import { Screens } from "../../Navigations";
-
+import { Screens } from "../../utils";
+import { PrimaryButton, TextButton } from "../../Shared/";
+import { Colors, Numbers } from "../../utils";
 interface Props {
   navigation: any;
 }
@@ -40,25 +39,40 @@ const OnboardingScreen: React.FC<Props> = ({ navigation }) => {
         renderItem={({ item }) => <Slide {...item} />}
       />
 
-      <View style={{ bottom: 70, flexDirection: "row" }}>
-        <Button
-          title=" Login / Register"
-          type="outline"
-          buttonStyle={{ borderColor: "white" }}
-          titleStyle={{ color: "white" }}
-          icon={<MaterialCommunityIcons name="login" size={24} color="white" />}
+      <View
+        style={[
+          {
+            bottom: 20,
+            justifyContent: "center",
+            alignItems: "center",
+            position: "absolute",
+            width: "100%",
+            padding: Numbers.padding.M,
+            paddingBottom: 0,
+          },
+        ]}
+      >
+        <ScrollIndicator
+          scrollX={scrollX}
+          data={DATA}
+          dotStyle={{ backgroundColor: "white" }}
+        />
+
+        <PrimaryButton
+          title="Log In"
           onPress={() => {
             navigation.navigate(Screens.LOGIN);
           }}
+          Color={Colors.primary}
+        />
+        <TextButton
+          title="New to lil? Sign Up"
+          onPress={() => {
+            console.log("sign up");
+          }}
+          textStyle={{ color: Colors.active }}
         />
       </View>
-
-      <ScrollIndicator
-        scrollX={scrollX}
-        data={DATA}
-        dotStyle={{ backgroundColor: "white" }}
-        containerStyle={{ bottom: 25 }}
-      />
     </View>
   );
 };

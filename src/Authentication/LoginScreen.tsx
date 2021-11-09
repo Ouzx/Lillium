@@ -6,10 +6,10 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
-import { Input, Button } from "react-native-elements";
+import { Input } from "react-native-elements";
 import { Feather } from "@expo/vector-icons";
 
-import { Container, Logo } from "../Shared";
+import { Container, Logo, PrimaryButton, TextButton } from "../Shared";
 import { Styles, Numbers, Colors } from "../utils";
 
 export default function LoginScreen() {
@@ -17,6 +17,7 @@ export default function LoginScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  // TODO: React native elementsin box degerleri
   return (
     <Container>
       <ImageBackground
@@ -79,22 +80,25 @@ export default function LoginScreen() {
               </TouchableOpacity>
             }
           />
-          <TouchableOpacity
+          <TextButton
+            title="Forgot Password?"
             onPress={() => {
-              console.log("forgot password");
+              console.log("Forgot Password?");
             }}
-          >
-            <Text style={Styles.comment}>Forgot Password?</Text>
-          </TouchableOpacity>
-          <Button
-            title={"Login"}
-            containerStyle={styles.buttonContainer}
-            buttonStyle={[styles.button, { backgroundColor: Colors.primary }]}
           />
-          <Button
-            title={"Register"}
-            containerStyle={styles.buttonContainer}
-            buttonStyle={[styles.button, { backgroundColor: Colors.secondary }]}
+          <PrimaryButton
+            title={"Log In"}
+            onPress={() => {
+              console.log("Login");
+            }}
+            Color={Colors.primary}
+          />
+          <PrimaryButton
+            title={"Sign Up"}
+            onPress={() => {
+              console.log("Sign Up");
+            }}
+            Color={Colors.secondary}
           />
         </View>
       </ImageBackground>
@@ -130,15 +134,5 @@ const styles = StyleSheet.create({
   },
   eyeIcon: {
     marginRight: Numbers.margin.M,
-  },
-
-  buttonContainer: {
-    width: "100%",
-    borderRadius: Numbers.radius.XL,
-    marginVertical: Numbers.margin.M,
-  },
-  button: {
-    borderRadius: Numbers.radius.XL,
-    padding: Numbers.padding.XS,
   },
 });
