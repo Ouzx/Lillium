@@ -40,11 +40,18 @@ enum radius {
 
 enum Fonts {}
 
+enum Sizes {
+  S = 14,
+  M = 18,
+  L = 24,
+}
+
 const Numbers = {
   padding: padding,
   margin: margin,
   font: font,
   radius: radius,
+  sizes: Sizes,
 };
 
 const Styles = StyleSheet.create({
@@ -62,9 +69,23 @@ const Styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#fff",
   },
+  plainText: {
+    color: Colors.active,
+    fontSize: Numbers.font.S,
+    overflow: "hidden",
+  },
   comment: {
     color: Colors.nonActive,
     fontSize: Numbers.font.S,
+  },
+  alignRow: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  onCardComment: {
+    color: Colors.nonActive,
+    fontSize: Numbers.font.S,
+    marginLeft: Numbers.margin.S,
   },
 });
 

@@ -27,7 +27,10 @@ export default function Signed() {
         headerShown: false,
         tabBarActiveTintColor: Colors.secondary,
         tabBarInactiveTintColor: Colors.nonActive,
-        tabBarStyle: { backgroundColor: Colors.dark },
+        tabBarStyle: {
+          backgroundColor: Colors.dark,
+          borderTopWidth: 0,
+        },
       })}
     >
       <Tab.Screen name={Screens.HOME} component={HomeScreen} />

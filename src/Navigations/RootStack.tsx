@@ -10,7 +10,7 @@ const Stack = createNativeStackNavigator();
 // TODO: Send callback to stacks for updating the signed state
 
 export default function RootStack() {
-  const [signed, setSigned] = useState(false);
+  const [signed, setSigned] = useState(true);
   return (
     <Stack.Navigator
       initialRouteName={Stacks.UNSIGNED}

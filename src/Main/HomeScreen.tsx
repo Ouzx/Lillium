@@ -1,14 +1,42 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, ImageBackground } from "react-native";
+
+import { Container, Logo, DetailCard } from "../Shared";
+import { Numbers } from "../utils";
 
 const HomeScreen = () => {
   return (
-    <View>
-      <Text></Text>
-    </View>
+    <Container>
+      <ImageBackground
+        source={require("../../assets/img/home-bg.png")}
+        style={styles.container}
+      >
+        <Logo />
+        <DetailCard
+          title="Deacon King Kong"
+          description={
+            "A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn."
+          }
+          author="James MC Bride"
+          image={require("../../assets/img/card-bg.png")}
+          containerStyle={styles.detailCard}
+        />
+      </ImageBackground>
+    </Container>
   );
 };
 
 export default HomeScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: Numbers.padding.S,
+    overflow: "hidden",
+    borderBottomLeftRadius: Numbers.radius.L,
+  },
+  detailCard: {
+    marginTop: Numbers.margin.L,
+    marginBottom: Numbers.margin.XL,
+  },
+});

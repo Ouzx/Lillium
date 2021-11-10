@@ -3,10 +3,12 @@ import { SafeAreaView, StatusBar, ScrollView } from "react-native";
 import { Styles, Colors } from "../../utils";
 
 interface Props {
-  children: React.ReactNode;
+  children?: React.ReactNode;
+  safeArea?: boolean;
 }
 
-const Container = ({ children }: Props) => {
+// TODO: Make safeareview optional
+const Container = ({ children, safeArea }: Props) => {
   return (
     <SafeAreaView style={Styles.container}>
       <StatusBar barStyle="light-content" backgroundColor={Colors.mainBG} />
