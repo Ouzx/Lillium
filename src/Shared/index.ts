@@ -6,6 +6,8 @@ import PagesOnCard from "./Components/PagesOnCard";
 import RatingOnCard from "./Components/RatingOnCard";
 import AuthorOnCard from "./Components/AutorOnCard";
 import DetailCard from "./Components/DetailCard";
+import Badge from "./Components/Badge";
+import RiliBig from "./Components/RiliBig";
 export {
   Container,
   Logo,
@@ -15,4 +17,6 @@ export {
   RatingOnCard,
   AuthorOnCard,
   DetailCard,
+  Badge,
+  RiliBig,
 };

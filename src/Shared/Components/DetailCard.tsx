@@ -14,6 +14,7 @@ import RatingOnCard from "./RatingOnCard";
 import AuthorOnCard from "./AutorOnCard";
 
 import Badge from "./Badge";
+import RiliBig from "./RiliBig";
 
 import { Numbers, Styles } from "../../utils";
 
@@ -31,12 +32,16 @@ interface Props {
 const DetailCard = (props: Props) => {
   return (
     <View>
-      <Badge value="NEW" />
-      <ImageBackground
-        style={[Styles.imageContainer, styles.container, props.containerStyle]}
-        source={props.image}
-      >
-        <TouchableOpacity>
+      <TouchableOpacity>
+        <Badge value="NEW" />
+        <ImageBackground
+          style={[
+            Styles.imageContainer,
+            styles.container,
+            props.containerStyle,
+          ]}
+          source={props.image}
+        >
           <Text style={Styles.headingText}>{props.title}</Text>
           <Text style={Styles.plainText}>{props.description}</Text>
           <View style={styles.pagesAndStars}>
@@ -51,8 +56,9 @@ const DetailCard = (props: Props) => {
             author={props.author}
             authorPic={props.authorImage}
           />
-        </TouchableOpacity>
-      </ImageBackground>
+          <RiliBig />
+        </ImageBackground>
+      </TouchableOpacity>
     </View>
   );
 };
