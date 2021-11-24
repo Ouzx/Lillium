@@ -1,5 +1,10 @@
 import React from "react";
-import { ImageSourcePropType, Text, View, ViewStyle } from "react-native";
+import {
+  ImageSourcePropType,
+  Text,
+  TouchableOpacity,
+  ViewStyle,
+} from "react-native";
 
 import { Numbers, Styles } from "../../utils";
 import { Avatar } from "react-native-elements";
@@ -11,7 +16,7 @@ interface Props {
 }
 const AuthorOnCard = ({ author, authorPic, containerStyle }: Props) => {
   return (
-    <View style={[Styles.alignRow, containerStyle]}>
+    <TouchableOpacity style={[Styles.alignRow, containerStyle]}>
       <Avatar
         rounded
         source={authorPic}
@@ -23,7 +28,7 @@ const AuthorOnCard = ({ author, authorPic, containerStyle }: Props) => {
         }}
       />
       <Text style={[Styles.onCardComment]}>{author}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
