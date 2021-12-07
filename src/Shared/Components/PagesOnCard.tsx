@@ -5,14 +5,20 @@ import { Numbers, Styles } from "../../utils";
 import { Cards } from "../icons";
 
 interface Props {
-  pageNum: number;
+  pageNum: number | string;
   containerStyle?: ViewStyle | ViewStyle[];
 }
 const PagesOnCard = ({ pageNum, containerStyle }: Props) => {
   return (
     <View style={[Styles.alignRow, containerStyle]}>
       <Cards width={Numbers.sizes.M} height={Numbers.sizes.M} />
-      <Text style={Styles.onCardComment}>{pageNum}</Text>
+      <Text
+        numberOfLines={1}
+        ellipsizeMode={"tail"}
+        style={Styles.onCardComment}
+      >
+        {pageNum}
+      </Text>
     </View>
   );
 };

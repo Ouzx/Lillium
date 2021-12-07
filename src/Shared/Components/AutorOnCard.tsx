@@ -14,6 +14,7 @@ interface Props {
   authorPic?: ImageSourcePropType;
   containerStyle?: ViewStyle | ViewStyle[];
 }
+// TODO: Navigate to author profile
 const AuthorOnCard = ({ author, authorPic, containerStyle }: Props) => {
   return (
     <TouchableOpacity style={[Styles.alignRow, containerStyle]}>
@@ -27,7 +28,13 @@ const AuthorOnCard = ({ author, authorPic, containerStyle }: Props) => {
           height: Numbers.sizes.M,
         }}
       />
-      <Text style={[Styles.onCardComment]}>{author}</Text>
+      <Text
+        numberOfLines={1}
+        ellipsizeMode={"tail"}
+        style={[Styles.onCardActiveComment]}
+      >
+        {author}
+      </Text>
     </TouchableOpacity>
   );
 };

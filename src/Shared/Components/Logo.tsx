@@ -26,6 +26,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   logo: {
-    marginRight: Numbers.margin.S,
+    marginRight: Numbers.margin.XS,
   },
 });

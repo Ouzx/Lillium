@@ -1,29 +1,39 @@
 import React from "react";
 import { StyleSheet, ImageBackground, ScrollView } from "react-native";
 
-import { Container, Logo, DetailCard } from "../Shared";
+import { BOOKS, DETAIL } from "../Demo";
+import MiniBookCard from "../Shared/Components/MiniBookCard";
+
+import { Container, Logo, DetailCard, RowList } from "../Shared";
 import { Numbers } from "../utils";
 
 const HomeScreen = () => {
   return (
     <Container>
-      <ImageBackground
-        source={require("../../assets/img/home-bg.png")}
-        style={styles.container}
-      >
-        <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <ImageBackground
+          source={require("../../assets/img/home-bg.png")}
+          style={styles.container}
+        >
           <Logo />
           <DetailCard
-            title="Deacon King Kong"
-            description={
-              "A mystery story, a crime novel, an urban farce, a sociological portrait of late-1960s Brooklyn."
-            }
-            author="James MC Bride"
-            image={require("../../assets/img/card-bg.png")}
+            title={DETAIL.title}
+            description={DETAIL.description}
+            author={DETAIL.author}
+            image={DETAIL.image}
             containerStyle={styles.detailCard}
           />
-        </ScrollView>
-      </ImageBackground>
+        </ImageBackground>
+
+        <RowList books={BOOKS} title="Recent >" renderItem={MiniBookCard} />
+        <RowList books={BOOKS} title="Popular >" renderItem={MiniBookCard} />
+        <RowList books={BOOKS} title="News >" renderItem={MiniBookCard} />
+        <RowList books={BOOKS} title="For you >" renderItem={MiniBookCard} />
+        <RowList books={BOOKS} title="Classics >" renderItem={MiniBookCard} />
+        <RowList books={BOOKS} title="History >" renderItem={MiniBookCard} />
+        <RowList books={BOOKS} title="Science >" renderItem={MiniBookCard} />
+        <RowList books={BOOKS} title="Art >" renderItem={MiniBookCard} />
+      </ScrollView>
     </Container>
   );
 };

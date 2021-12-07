@@ -8,6 +8,7 @@ interface Props {
   onPress?: () => void;
 }
 
+// TODO: Navigate to reading directly
 const RiliBig = (props: Props) => {
   return (
     <TouchableOpacity

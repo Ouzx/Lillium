@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, TextProps } from "react-native";
 
 enum Colors {
   primary = "#3369FF",
@@ -19,7 +19,8 @@ enum padding {
 }
 
 enum margin {
-  S = 10,
+  XS = 10,
+  S = 16,
   M = 24,
   L = 30,
   XL = 70,
@@ -44,6 +45,8 @@ enum Sizes {
   S = 14,
   M = 18,
   L = 24,
+  MINI_IMAGE_WIDTH = 147,
+  MINI_IMAGE_HEIGHT = 136,
 }
 
 const Numbers = {
@@ -64,8 +67,14 @@ const Styles = StyleSheet.create({
     padding: Numbers.padding.M,
     paddingTop: Numbers.padding.M,
   },
+
   headingText: {
     fontSize: Numbers.font.L,
+    fontWeight: "bold",
+    color: "#fff",
+  },
+  subHeadingText: {
+    fontSize: Numbers.font.M,
     fontWeight: "bold",
     color: "#fff",
   },
@@ -74,19 +83,42 @@ const Styles = StyleSheet.create({
     fontSize: Numbers.font.S,
     overflow: "hidden",
   },
+
   comment: {
     color: Colors.nonActive,
     fontSize: Numbers.font.S,
   },
+  onCardComment: {
+    color: Colors.nonActive,
+    fontSize: Numbers.font.S,
+    marginLeft: Numbers.margin.XS,
+    width: "100%",
+  },
+  onCardActiveComment: {
+    color: Colors.active,
+    fontSize: Numbers.font.S,
+    marginLeft: Numbers.margin.XS,
+    width: "100%",
+  },
+
   alignRow: {
     flexDirection: "row",
     alignItems: "center",
   },
-  onCardComment: {
-    color: Colors.nonActive,
-    fontSize: Numbers.font.S,
-    marginLeft: Numbers.margin.S,
+
+  lilCardSquareM: {
+    borderRadius: Numbers.radius.M,
+    borderBottomRightRadius: 0,
+  },
+  lilCardSquareS: {
+    borderRadius: Numbers.radius.S,
+    borderBottomRightRadius: 0,
   },
 });
 
-export { Colors, Numbers, Fonts, Styles };
+const TextWrapper: TextProps = {
+  numberOfLines: 2,
+  ellipsizeMode: "tail",
+};
+
+export { Colors, Numbers, Fonts, Styles, Sizes, TextWrapper };

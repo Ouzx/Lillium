@@ -16,7 +16,7 @@ import AuthorOnCard from "./AutorOnCard";
 import Badge from "./Badge";
 import RiliBig from "./RiliBig";
 
-import { Numbers, Styles } from "../../utils";
+import { Numbers, Styles, TextWrapper } from "../../utils";
 
 interface Props {
   title: string;
@@ -38,12 +38,15 @@ const DetailCard = (props: Props) => {
           style={[
             Styles.imageContainer,
             styles.container,
+            Styles.lilCardSquareM,
             props.containerStyle,
           ]}
           source={props.image}
         >
           <Text style={Styles.headingText}>{props.title}</Text>
-          <Text style={Styles.plainText}>{props.description}</Text>
+          <Text style={Styles.plainText} {...TextWrapper}>
+            {props.description}
+          </Text>
           <View style={styles.pagesAndStars}>
             <PagesOnCard pageNum={Math.floor(Math.random() * 4000 + 250)} />
             <RatingOnCard
@@ -52,7 +55,7 @@ const DetailCard = (props: Props) => {
             />
           </View>
           <AuthorOnCard
-            containerStyle={{ marginTop: Numbers.margin.S }}
+            containerStyle={{ marginTop: Numbers.margin.XS }}
             author={props.author}
             authorPic={props.authorImage}
           />
@@ -67,8 +70,6 @@ export default DetailCard;
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: Numbers.radius.M,
-    borderBottomRightRadius: 0,
     overflow: "hidden",
   },
   pagesAndStars: {

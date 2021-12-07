@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
     color: Colors.active,
   },
   inputIcon: {
-    marginRight: Numbers.margin.S,
+    marginRight: Numbers.margin.XS,
   },
   eyeIcon: {
     marginRight: Numbers.margin.M,
