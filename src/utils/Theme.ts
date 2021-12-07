@@ -7,6 +7,7 @@ enum Colors {
   nonActive = "#898F97",
   active = "#FFF",
   secondary = "#FF334B",
+  secondaryDark = "#010304",
 }
 
 enum padding {
@@ -72,6 +73,12 @@ const Styles = StyleSheet.create({
     fontSize: Numbers.font.L,
     fontWeight: "bold",
     color: "#fff",
+  },
+  h1: {
+    fontSize: 48,
+    fontWeight: "bold",
+    color: Colors.active,
+    marginVertical: Numbers.margin.L,
   },
   subHeadingText: {
     fontSize: Numbers.font.M,
