@@ -1,7 +1,6 @@
 import React from "react";
 import {
   StyleSheet,
-  Text,
   View,
   ImageBackground,
   ViewStyle,
@@ -12,11 +11,12 @@ import {
 import PagesOnCard from "./PagesOnCard";
 import RatingOnCard from "./RatingOnCard";
 import AuthorOnCard from "./AutorOnCard";
+import Txt from "./Txt";
 
 import Badge from "./Badge";
 import RiliBig from "./RiliBig";
 
-import { Numbers, Styles, TextWrapper } from "../../utils";
+import { Numbers, Styles } from "../../utils";
 
 interface Props {
   title: string;
@@ -43,10 +43,12 @@ const DetailCard = (props: Props) => {
           ]}
           source={props.image}
         >
-          <Text style={Styles.headingText}>{props.title}</Text>
-          <Text style={Styles.plainText} {...TextWrapper}>
+          <Txt numberOfLines={1} style={Styles.headingText}>
+            {props.title}
+          </Txt>
+          <Txt style={Styles.plainText} numberOfLines={3}>
             {props.description}
-          </Text>
+          </Txt>
           <View style={styles.pagesAndStars}>
             <PagesOnCard pageNum={Math.floor(Math.random() * 4000 + 250)} />
             <RatingOnCard

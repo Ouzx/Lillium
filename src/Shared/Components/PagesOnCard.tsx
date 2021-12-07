@@ -12,13 +12,7 @@ const PagesOnCard = ({ pageNum, containerStyle }: Props) => {
   return (
     <View style={[Styles.alignRow, containerStyle]}>
       <Cards width={Numbers.sizes.M} height={Numbers.sizes.M} />
-      <Text
-        numberOfLines={1}
-        ellipsizeMode={"tail"}
-        style={Styles.onCardComment}
-      >
-        {pageNum}
-      </Text>
+      <Text style={Styles.pageCounter}>{pageNum}</Text>
     </View>
   );
 };

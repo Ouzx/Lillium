@@ -1,7 +1,6 @@
 import React from "react";
 import {
   StyleSheet,
-  Text,
   TouchableOpacity,
   Image,
   View,
@@ -11,8 +10,9 @@ import {
 
 import PagesOnCard from "./PagesOnCard";
 import AuthorOnCard from "./AutorOnCard";
+import Txt from "./Txt";
 
-import { Styles, Numbers, Sizes, TextWrapper } from "../../utils";
+import { Styles, Numbers, Sizes } from "../../utils";
 
 interface Props {
   id: string;
@@ -33,9 +33,9 @@ const MiniBookCard = (props: Props) => {
     >
       <Image source={props.image} style={[Styles.lilCardSquareS, styles.img]} />
       <View>
-        <Text {...TextWrapper} style={[Styles.plainText, styles.bookTitle]}>
+        <Txt numberOfLines={2} style={[Styles.plainText, styles.bookTitle]}>
           {props.title}
-        </Text>
+        </Txt>
         <PagesOnCard pageNum={`${props.pageNum} pages`} />
 
         {/*  BUG: Author first letter over flowing */}

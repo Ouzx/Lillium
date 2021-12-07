@@ -1,4 +1,4 @@
-import { StyleSheet, TextProps } from "react-native";
+import { StyleSheet } from "react-native";
 
 enum Colors {
   primary = "#3369FF",
@@ -100,6 +100,11 @@ const Styles = StyleSheet.create({
     marginLeft: Numbers.margin.XS,
     width: "100%",
   },
+  pageCounter: {
+    color: Colors.nonActive,
+    fontSize: Numbers.font.S,
+    marginLeft: Numbers.margin.XS,
+  },
 
   alignRow: {
     flexDirection: "row",
@@ -116,9 +121,4 @@ const Styles = StyleSheet.create({
   },
 });
 
-const TextWrapper: TextProps = {
-  numberOfLines: 2,
-  ellipsizeMode: "tail",
-};
-
-export { Colors, Numbers, Fonts, Styles, Sizes, TextWrapper };
+export { Colors, Numbers, Fonts, Styles, Sizes };

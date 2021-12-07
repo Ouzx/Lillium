@@ -1,5 +1,5 @@
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from "./constants";
-import { Colors, Numbers, Fonts, Styles, Sizes, TextWrapper } from "./Theme";
+import { Colors, Numbers, Fonts, Styles, Sizes } from "./Theme";
 import { Screens, Stacks } from "./Routes";
 export {
   SCREEN_HEIGHT,
@@ -11,5 +11,4 @@ export {
   Screens,
   Stacks,
   Sizes,
-  TextWrapper,
 };
