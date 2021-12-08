@@ -72,19 +72,19 @@ const Results = {
   Authors: [
     {
       name: "J.R.R. Tolkien",
-      key: "tolkien",
+      id: "tolkien",
       bookCount: 30,
       img: tolkien,
     },
     {
       name: "J.D. Salinger",
-      key: "salinger",
+      id: "salinger",
       bookCount: 22,
       img: salinger,
     },
     {
       name: "John Steinbeck",
-      key: "steinbeck",
+      id: "steinbeck",
       bookCount: 20,
       img: steinback,
     },
