@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { StyleSheet } from "react-native";
 
 import { SearchBar as SB } from "react-native-elements";
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   },
   searchBarInputContainer: {
     backgroundColor: Colors.secondaryDark,
-    borderRadius: Numbers.radius.M,
+    borderRadius: Numbers.radius.S,
     paddingLeft: Numbers.padding.XXS,
   },
 });

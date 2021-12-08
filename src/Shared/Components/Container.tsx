@@ -1,18 +1,18 @@
 import React from "react";
-import { SafeAreaView, StatusBar, ScrollView } from "react-native";
+import { SafeAreaView, StatusBar, ViewStyle } from "react-native";
 import { Styles, Colors } from "../../utils";
 
 interface Props {
   children?: React.ReactNode;
-  safeArea?: boolean;
+  style?: ViewStyle | ViewStyle[];
 }
 
 // TODO: Make safeareview optional
-const Container = ({ children, safeArea }: Props) => {
+const Container = ({ children, style }: Props) => {
   return (
-    <SafeAreaView style={Styles.container}>
+    <SafeAreaView style={[Styles.container, style]}>
       <StatusBar barStyle="light-content" backgroundColor={Colors.mainBG} />
-      <ScrollView showsVerticalScrollIndicator={false}>{children}</ScrollView>
+      {children}
     </SafeAreaView>
   );
 };

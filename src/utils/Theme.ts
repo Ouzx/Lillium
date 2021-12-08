@@ -3,6 +3,7 @@ import { StyleSheet } from "react-native";
 enum Colors {
   primary = "#3369FF",
   mainBG = "#09121C",
+  secondaryBG = "#19232F",
   dark = "#070D15",
   nonActive = "#898F97",
   active = "#FFF",
