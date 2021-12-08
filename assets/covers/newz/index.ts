@@ -26,6 +26,10 @@ import umbertoarte from "./umbertoarte.jpg";
 import uygarliginayakizleri from "./uygarliginayakizleri.jpg";
 import vebageceleri from "./vebageceleri.jpg";
 import yakintarihingercekleri from "./yakintarihingercekleri.jpg";
+import hobbit from "./hobbit.jpg";
+import lotr from "./lotr.jpg";
+import catcher from "./catcher.jpg";
+import grapes from "./grapes.jpg";
 // import  author1  from "../../authors/jamesmcbride.jpg";
 // import  author2  from "../../authors/JK.jpg";
 
@@ -59,6 +63,10 @@ export {
   uygarliginayakizleri,
   vebageceleri,
   yakintarihingercekleri,
+  grapes,
+  catcher,
+  hobbit,
+  lotr,
   // author1,
   // author2,
 };

@@ -1,18 +1,28 @@
 import React from "react";
-import { Text, View, ViewStyle } from "react-native";
+import { View, ViewStyle } from "react-native";
 
-import { Numbers, Styles } from "../../utils";
+import { Numbers, Styles, Colors } from "../../utils";
 import { Cards } from "../icons";
+import Txt from "./Txt";
 
 interface Props {
   pageNum: number | string;
   containerStyle?: ViewStyle | ViewStyle[];
+  color?: string;
 }
-const PagesOnCard = ({ pageNum, containerStyle }: Props) => {
+const PagesOnCard = ({ pageNum, containerStyle, color }: Props) => {
   return (
     <View style={[Styles.alignRow, containerStyle]}>
       <Cards width={Numbers.sizes.M} height={Numbers.sizes.M} />
-      <Text style={Styles.pageCounter}>{pageNum}</Text>
+      <Txt
+        numberOfLines={1}
+        style={[
+          Styles.pageCounter,
+          { color: color ? color : Colors.nonActive },
+        ]}
+      >
+        {pageNum}
+      </Txt>
     </View>
   );
 };

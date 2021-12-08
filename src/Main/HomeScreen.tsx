@@ -2,10 +2,10 @@ import React from "react";
 import { StyleSheet, ImageBackground, ScrollView } from "react-native";
 
 import { BOOKS, DETAIL } from "../Demo";
-import MiniBookCard from "../Shared/Components/MiniBookCard";
-
-import { Container, Logo, DetailCard, RowList } from "../Shared";
+import { Container, Logo, DetailCard, RowList, MiniBookCard } from "../Shared";
 import { Numbers } from "../utils";
+
+// TODO: Randomize the books
 
 const HomeScreen = () => {
   return (
@@ -25,14 +25,14 @@ const HomeScreen = () => {
           />
         </ImageBackground>
 
-        <RowList books={BOOKS} title="Recent >" renderItem={MiniBookCard} />
-        <RowList books={BOOKS} title="Popular >" renderItem={MiniBookCard} />
-        <RowList books={BOOKS} title="News >" renderItem={MiniBookCard} />
-        <RowList books={BOOKS} title="For you >" renderItem={MiniBookCard} />
-        <RowList books={BOOKS} title="Classics >" renderItem={MiniBookCard} />
-        <RowList books={BOOKS} title="History >" renderItem={MiniBookCard} />
-        <RowList books={BOOKS} title="Science >" renderItem={MiniBookCard} />
-        <RowList books={BOOKS} title="Art >" renderItem={MiniBookCard} />
+        <RowList data={BOOKS} title="Recent >" renderItem={MiniBookCard} />
+        <RowList data={BOOKS} title="Popular >" renderItem={MiniBookCard} />
+        <RowList data={BOOKS} title="News >" renderItem={MiniBookCard} />
+        <RowList data={BOOKS} title="For you >" renderItem={MiniBookCard} />
+        <RowList data={BOOKS} title="Classics >" renderItem={MiniBookCard} />
+        <RowList data={BOOKS} title="History >" renderItem={MiniBookCard} />
+        <RowList data={BOOKS} title="Science >" renderItem={MiniBookCard} />
+        <RowList data={BOOKS} title="Art >" renderItem={MiniBookCard} />
       </ScrollView>
     </Container>
   );

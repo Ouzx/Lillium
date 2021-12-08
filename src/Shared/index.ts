@@ -9,7 +9,9 @@ import DetailCard from "./Components/BookCard";
 import Badge from "./Components/Badge";
 import RiliBig from "./Components/RiliBig";
 import RowList from "./Components/RowList";
-
+import BooksOnCard from "./Components/BooksOnCard";
+import MiniBookCard from "./Components/MiniBookCard";
+import Txt from "./Components/Txt";
 export {
   Container,
   Logo,
@@ -22,4 +24,7 @@ export {
   Badge,
   RiliBig,
   RowList,
+  BooksOnCard,
+  MiniBookCard,
+  Txt,
 };

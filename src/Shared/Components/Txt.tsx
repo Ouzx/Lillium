@@ -2,7 +2,7 @@ import React from "react";
 import { Text, TextStyle } from "react-native";
 
 interface Props {
-  children?: string;
+  children?: string | number;
   style?: TextStyle | TextStyle[];
   numberOfLines: number;
 }

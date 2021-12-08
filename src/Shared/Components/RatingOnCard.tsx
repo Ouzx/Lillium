@@ -1,22 +1,31 @@
 import React from "react";
-import { Text, View, ViewStyle } from "react-native";
+import { View, ViewStyle } from "react-native";
 
 import { Numbers, Styles, Colors } from "../../utils";
 import { Ionicons } from "@expo/vector-icons";
-
+import Txt from "./Txt";
 interface Props {
   rating: string;
   containerStyle?: ViewStyle | ViewStyle[];
+  color?: string;
 }
-const RatingOnCard = ({ rating, containerStyle }: Props) => {
+const RatingOnCard = ({ rating, containerStyle, color }: Props) => {
   return (
     <View style={[Styles.alignRow, containerStyle]}>
       <Ionicons
         name="star-outline"
         size={Numbers.sizes.M}
-        color={Colors.nonActive}
+        color={color ? color : Colors.nonActive}
       />
-      <Text style={Styles.onCardComment}>{rating}</Text>
+      <Txt
+        numberOfLines={1}
+        style={[
+          Styles.onCardComment,
+          { color: color ? color : Colors.nonActive },
+        ]}
+      >
+        {rating}
+      </Txt>
     </View>
   );
 };
