@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View, ViewStyle } from "react-native";
 
 import Genre from "./Genre";
-import { Styles, Numbers } from "../utils";
+import { Styles, Numbers } from "../../utils";
 
 interface Props {
   listData: any[];

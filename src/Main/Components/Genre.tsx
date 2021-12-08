@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, TouchableOpacity, ViewStyle } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
-import { Colors, Numbers } from "../utils";
+import { Colors, Numbers } from "../../utils";
 
 interface Props {
   id: string;

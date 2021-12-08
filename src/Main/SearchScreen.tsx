@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Text, View, ScrollView, StyleSheet } from "react-native";
 
-import GenreList from "./GenreList";
-import SearchBar from "./SearchBar";
+import GenreList from "./Components/GenreList";
+import SearchBar from "./Components/SearchBar";
 
 import { Genres } from "../Demo";
 

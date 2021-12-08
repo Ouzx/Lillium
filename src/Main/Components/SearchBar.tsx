@@ -7,7 +7,7 @@ import { SearchBarBaseProps } from "react-native-elements/dist/searchbar/SearchB
 // Using SearchBarBaseProps instead of SearchBarDefaultProps & SearchBarAndroidProps & SearchBarIOSProps
 const SafeSearchBar = SB as unknown as React.FC<SearchBarBaseProps>;
 
-import { Colors, Numbers } from "../utils";
+import { Colors, Numbers } from "../../utils";
 
 interface Props {
   search: string;
