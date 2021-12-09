@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, ImageBackground, ScrollView } from "react-native";
 
 import { BOOKS, DETAIL } from "../Demo";
-import { Container, Logo, DetailCard, RowList, MiniBookCard } from "../Shared";
+import { Container, Logo, BookCard, RowList, MiniBookCard } from "../Shared";
 import { Numbers } from "../utils";
 
 // TODO: Randomize the books
@@ -16,7 +16,7 @@ const HomeScreen = () => {
           style={styles.container}
         >
           <Logo />
-          <DetailCard
+          <BookCard
             title={DETAIL.title}
             description={DETAIL.description}
             author={DETAIL.author}

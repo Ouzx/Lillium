@@ -11,7 +11,7 @@ const Tab = createBottomTabNavigator();
 export default function Signed() {
   return (
     <Tab.Navigator
-      initialRouteName={Screens.SEARCH}
+      initialRouteName={Screens.LIBRARY}
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName: any;

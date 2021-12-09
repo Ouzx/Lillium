@@ -11,7 +11,11 @@ interface Props {
 const Container = ({ children, style }: Props) => {
   return (
     <SafeAreaView style={[Styles.container, style]}>
-      <StatusBar barStyle="light-content" backgroundColor={Colors.mainBG} />
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor={Colors.mainBG}
+        translucent={false}
+      />
       {children}
     </SafeAreaView>
   );

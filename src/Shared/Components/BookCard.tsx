@@ -27,13 +27,15 @@ interface Props {
   author: string;
   authorImage?: ImageSourcePropType;
   containerStyle?: ViewStyle | ViewStyle[];
+  badge?: string;
+  noBadge?: boolean;
 }
 
-const DetailCard = (props: Props) => {
+const BookCard = (props: Props) => {
   return (
     <View>
       <TouchableOpacity>
-        <Badge value="NEW" />
+        {!props.noBadge && <Badge value={props.badge ? props.badge : "NEW"} />}
         <ImageBackground
           style={[
             Styles.imageContainer,
@@ -68,7 +70,7 @@ const DetailCard = (props: Props) => {
   );
 };
 
-export default DetailCard;
+export default BookCard;
 
 const styles = StyleSheet.create({
   container: {

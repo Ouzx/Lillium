@@ -9,6 +9,7 @@ enum Colors {
   active = "#FFF",
   secondary = "#FF334B",
   secondaryDark = "#010304",
+  transparentBg = "rgba(9, 18, 28, 0.56)",
 }
 
 enum padding {
@@ -67,6 +68,7 @@ const Styles = StyleSheet.create({
   innerContainer: {
     flex: 1,
     padding: padding.S,
+    paddingRight: 0,
   },
   imageContainer: {
     flex: 1,
