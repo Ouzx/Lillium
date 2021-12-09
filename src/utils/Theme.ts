@@ -64,6 +64,10 @@ const Styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.mainBG,
   },
+  innerContainer: {
+    flex: 1,
+    padding: padding.S,
+  },
   imageContainer: {
     flex: 1,
     padding: Numbers.padding.M,
