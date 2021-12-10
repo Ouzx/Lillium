@@ -29,8 +29,8 @@ const TabbedHeader = (props: Props) => {
     });
 
     const backgroundColor = scrollY.y.interpolate({
-      inputRange: [0, 100],
-      outputRange: [Colors.transparentBg, Colors.mainBG],
+      inputRange: [0, 50, 100],
+      outputRange: ["rgba(0,0,0,0)", Colors.transparentBg, Colors.mainBG],
     });
 
     return (
@@ -124,7 +124,7 @@ const TabbedHeader = (props: Props) => {
       <View
         style={[
           Styles.container,
-          { padding: Numbers.padding.S, backgroundColor: Colors.transparentBg },
+          { padding: Numbers.padding.S, backgroundColor: "transparent" },
         ]}
       >
         {renderContent(title)}
@@ -152,7 +152,7 @@ const TabbedHeader = (props: Props) => {
       <StickyParallaxHeader
         // foregroundImage={}
         headerType={"TabbedHeader"}
-        backgroundColor={Colors.transparentBg}
+        backgroundColor={"transparent"}
         tabs={tabs}
         header={renderHeader}
         foreground={renderForeground}
