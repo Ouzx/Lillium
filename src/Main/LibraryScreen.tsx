@@ -10,7 +10,7 @@ const LibraryScreen = () => {
       style={{ width: "100%", height: "100%" }}
       resizeMode="stretch"
     >
-      <TabbedHeader screenName="Library Screen" />
+      <TabbedHeader screenName="Library Screen" noBackButton />
     </ImageBackground>
   );
 };

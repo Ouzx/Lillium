@@ -7,6 +7,7 @@ import BookCard from "./BookCard";
 import BackButton from "./BackButton";
 import Txt from "./Txt";
 import BooksOnCard from "./BooksOnCard";
+import Logo from "./Logo";
 
 import { LibraryBooks } from "../../Demo";
 import { Numbers, Styles, Colors } from "../../utils";
@@ -16,6 +17,7 @@ const scrollY = new ValueXY();
 
 interface Props {
   screenName: string;
+  noBackButton?: boolean;
 }
 
 const TabbedHeader = (props: Props) => {
@@ -52,11 +54,18 @@ const TabbedHeader = (props: Props) => {
               alignItems: "center",
             }}
           >
-            <BackButton style={{ marginRight: Numbers.margin.XS }} />
-
-            <Animated.Text style={[Styles.plainText, { opacity }]}>
-              {props.screenName}
-            </Animated.Text>
+            {props.noBackButton ? (
+              <View style={{ flex: 1 }}>
+                <Logo />
+              </View>
+            ) : (
+              <>
+                <BackButton style={{ marginRight: Numbers.margin.XS }} />
+                <Animated.Text style={[Styles.plainText, { opacity }]}>
+                  {props.screenName}
+                </Animated.Text>
+              </>
+            )}
           </View>
         </Animated.View>
       </>
