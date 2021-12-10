@@ -14,6 +14,7 @@ import MiniBookCard from "./Components/MiniBookCard";
 import Txt from "./Components/Txt";
 import ParallaxHeader from "./Components/ParallaxHeader";
 import BackButton from "./Components/BackButton";
+import AuthorsOnCard from "./Components/AuthorsOnCards";
 
 export {
   Container,
@@ -32,4 +33,5 @@ export {
   Txt,
   ParallaxHeader,
   BackButton,
+  AuthorsOnCard,
 };

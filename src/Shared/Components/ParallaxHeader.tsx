@@ -5,8 +5,6 @@ import StickyParallaxHeader from "react-native-sticky-parallax-header";
 
 import BookCard from "./BookCard";
 import BackButton from "./BackButton";
-import Txt from "./Txt";
-import BooksOnCard from "./BooksOnCard";
 import Logo from "./Logo";
 
 import { Numbers, Styles, Colors } from "../../utils";
@@ -36,8 +34,8 @@ const ParallaxHeader = (props: Props) => {
     });
 
     const backgroundColor = scrollY.y.interpolate({
-      inputRange: [0, 50, 100],
-      outputRange: ["rgba(0,0,0,0)", Colors.transparentBg, Colors.mainBG],
+      inputRange: [0, 100],
+      outputRange: [Colors.transparentBg, Colors.mainBG],
     });
 
     return (
@@ -149,10 +147,11 @@ const ParallaxHeader = (props: Props) => {
     <>
       <StickyParallaxHeader
         headerType={"TabbedHeader"}
-        backgroundColor={"transparent"}
+        backgroundColor={Colors.transparentBg}
         tabs={tabs}
         header={renderHeader}
         foreground={renderForeground}
+        parallaxHeight={300}
         headerHeight={70}
         rememberTabScrollPosition
         decelerationRate="normal"

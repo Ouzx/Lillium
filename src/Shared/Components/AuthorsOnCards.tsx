@@ -10,11 +10,11 @@ interface Props {
   color?: string;
 }
 
-const BooksOnCard = (props: Props) => {
+const AuthorsOnCard = (props: Props) => {
   return (
     <View style={[props.containerStyle, Styles.alignRow]}>
       <Ionicons
-        name="ios-book-outline"
+        name="person-circle-outline"
         size={Numbers.sizes.M}
         color={props.color ? props.color : Colors.nonActive}
       />
@@ -26,10 +26,10 @@ const BooksOnCard = (props: Props) => {
           },
         ]}
       >
-        {props.count} books
+        {props.count} authors
       </Text>
     </View>
   );
 };
 
-export default BooksOnCard;
+export default AuthorsOnCard;

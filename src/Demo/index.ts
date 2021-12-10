@@ -3,5 +3,15 @@ import { BOOKS, DETAIL } from "./BookList";
 import { Genres } from "./Genres";
 import Results from "./Results";
 import LibraryBooks from "./LibraryBooks";
+import CategoryBooks from "./CategoryBooks";
 
-export { BG, DATA, BOOKS, DETAIL, Genres, Results, LibraryBooks };
+export {
+  BG,
+  DATA,
+  BOOKS,
+  DETAIL,
+  Genres,
+  Results,
+  LibraryBooks,
+  CategoryBooks,
+};

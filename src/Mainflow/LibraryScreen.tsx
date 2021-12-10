@@ -27,7 +27,7 @@ const LibraryScreen = () => {
     >
       <View style={{ flex: 1, backgroundColor: Colors.transparentBg }}>
         <ParallaxHeader
-          screenName="Library Screen"
+          screenName={SCREEN_NAME}
           noBackButton
           tabs={tabs}
           data={LibraryBooks}

@@ -106,7 +106,6 @@ const Styles = StyleSheet.create({
     color: Colors.nonActive,
     fontSize: Numbers.font.S,
     marginLeft: Numbers.margin.XS,
-    width: "100%",
   },
   onCardActiveComment: {
     color: Colors.active,
