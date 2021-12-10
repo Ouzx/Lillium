@@ -1,11 +1,18 @@
 import React from "react";
-import { View, StyleSheet, StatusBar } from "react-native";
+import { View, StyleSheet, StatusBar, Animated } from "react-native";
+
 import StickyParallaxHeader from "react-native-sticky-parallax-header";
 
 import BookCard from "./BookCard";
-import Logo from "./Logo";
+import BackButton from "./BackButton";
+import Txt from "./Txt";
+import BooksOnCard from "./BooksOnCard";
+
 import { LibraryBooks } from "../../Demo";
 import { Numbers, Styles, Colors } from "../../utils";
+
+const { event, ValueXY } = Animated;
+const scrollY = new ValueXY();
 
 interface Props {
   screenName: string;
@@ -13,20 +20,71 @@ interface Props {
 
 const TabbedHeader = (props: Props) => {
   const renderHeader = () => {
+    const opacity = scrollY.y.interpolate({
+      inputRange: [0, 100],
+      outputRange: [0, 1],
+      extrapolate: "clamp",
+    });
+
+    const backgroundColor = scrollY.y.interpolate({
+      inputRange: [0, 100],
+      outputRange: [Colors.transparentBg, Colors.mainBG],
+    });
+
     return (
-      <View
-        style={[
-          styles.container,
-          { backgroundColor: Colors.transparentBg, justifyContent: "center" },
-        ]}
+      <>
+        <Animated.View
+          style={[
+            styles.container,
+            { justifyContent: "center", backgroundColor },
+          ]}
+        >
+          <StatusBar
+            backgroundColor={Colors.mainBG}
+            barStyle="light-content"
+            translucent={false}
+          />
+          <View
+            style={{
+              flexDirection: "row",
+              flex: 1,
+              // justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <BackButton style={{ marginRight: Numbers.margin.XS }} />
+
+            <Animated.Text style={[Styles.plainText, { opacity }]}>
+              {props.screenName}
+            </Animated.Text>
+          </View>
+        </Animated.View>
+      </>
+    );
+  };
+
+  const renderForeground = () => {
+    const opacity = scrollY.y.interpolate({
+      inputRange: [0, 100],
+      outputRange: [1, 0],
+      extrapolate: "clamp",
+    });
+
+    return (
+      <Animated.View
+        style={{
+          flex: 1,
+          justifyContent: "flex-end",
+          marginBottom: Numbers.margin.L,
+          padding: Numbers.padding.S,
+          opacity,
+        }}
       >
-        <StatusBar
-          backgroundColor={Colors.mainBG}
-          barStyle="light-content"
-          translucent={false}
-        />
-        <Logo />
-      </View>
+        <Txt numberOfLines={2} style={Styles.h1}>
+          {props.screenName}
+        </Txt>
+        <BooksOnCard count={21} />
+      </Animated.View>
     );
   };
 
@@ -54,7 +112,12 @@ const TabbedHeader = (props: Props) => {
 
   const renderParallax = (title: string) => {
     return (
-      <View style={[Styles.container, { padding: Numbers.padding.S }]}>
+      <View
+        style={[
+          Styles.container,
+          { padding: Numbers.padding.S, backgroundColor: Colors.transparentBg },
+        ]}
+      >
         {renderContent(title)}
       </View>
     );
@@ -78,16 +141,15 @@ const TabbedHeader = (props: Props) => {
   return (
     <>
       <StickyParallaxHeader
+        // foregroundImage={}
         headerType={"TabbedHeader"}
         backgroundColor={Colors.transparentBg}
         tabs={tabs}
         header={renderHeader}
-        headerHeight={70} // TODO: make dynamic
+        foreground={renderForeground}
+        headerHeight={70}
         rememberTabScrollPosition
-        title={props.screenName}
-        titleStyle={Styles.h1}
         decelerationRate="normal"
-        logoStyle={{ transform: [{ scale: 0 }] }}
         tabTextContainerActiveStyle={{ backgroundColor: "transparent" }}
         tabTextActiveStyle={{ color: Colors.primary }}
         tabTextStyle={{
@@ -95,9 +157,6 @@ const TabbedHeader = (props: Props) => {
         }}
         tabTextContainerStyle={{
           backgroundColor: "transparent",
-        }}
-        contentContainerStyles={{
-          backgroundColor: Colors.transparentBg,
         }}
         tabsContainerStyle={{
           flex: 1,
@@ -108,6 +167,10 @@ const TabbedHeader = (props: Props) => {
           marginRight: Numbers.margin.S,
           marginVertical: Numbers.margin.S,
         }}
+        scrollEvent={event(
+          [{ nativeEvent: { contentOffset: { y: scrollY.y } } }],
+          { useNativeDriver: false }
+        )}
       />
     </>
   );
@@ -122,6 +185,7 @@ const styles = StyleSheet.create({
     marginTop: Numbers.margin.S,
     marginBottom: Numbers.margin.S,
   },
+  headerText: {},
 });
 
 export default TabbedHeader;

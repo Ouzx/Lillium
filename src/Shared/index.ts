@@ -13,6 +13,7 @@ import BooksOnCard from "./Components/BooksOnCard";
 import MiniBookCard from "./Components/MiniBookCard";
 import Txt from "./Components/Txt";
 import TabbedHeader from "./Components/TabbedHeader";
+import BackButton from "./Components/BackButton";
 
 export {
   Container,
@@ -30,4 +31,5 @@ export {
   MiniBookCard,
   Txt,
   TabbedHeader,
+  BackButton,
 };
