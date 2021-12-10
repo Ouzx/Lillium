@@ -5,6 +5,9 @@ enum Screens {
   HOME = "Home",
   SEARCH = "Search",
   LIBRARY = "Library",
+  AUTHOR = "Author",
+  BOOK = "Book",
+  CATEGORY = "Category",
 }
 
 enum Stacks {
@@ -12,4 +15,9 @@ enum Stacks {
   SIGNED = "SignedStack",
 }
 
-export { Screens, Stacks };
+enum Flows {
+  MAIN = "MainFlow",
+  SIDE = "SideFlow",
+}
+
+export { Screens, Stacks, Flows };

@@ -148,7 +148,6 @@ const ParallaxHeader = (props: Props) => {
   return (
     <>
       <StickyParallaxHeader
-        // foregroundImage={}
         headerType={"TabbedHeader"}
         backgroundColor={"transparent"}
         tabs={tabs}

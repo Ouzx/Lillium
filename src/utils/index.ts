@@ -1,6 +1,6 @@
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from "./constants";
 import { Colors, Numbers, Fonts, Styles, Sizes } from "./Theme";
-import { Screens, Stacks } from "./Routes";
+import { Screens, Stacks, Flows } from "./Routes";
 export {
   SCREEN_HEIGHT,
   SCREEN_WIDTH,
@@ -11,4 +11,5 @@ export {
   Screens,
   Stacks,
   Sizes,
+  Flows,
 };
