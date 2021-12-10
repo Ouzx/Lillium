@@ -9,7 +9,6 @@ import Txt from "./Txt";
 import BooksOnCard from "./BooksOnCard";
 import Logo from "./Logo";
 
-import { LibraryBooks } from "../../Demo";
 import { Numbers, Styles, Colors } from "../../utils";
 
 const { event, ValueXY } = Animated;
@@ -17,7 +16,15 @@ const scrollY = new ValueXY();
 
 interface Props {
   screenName: string;
+  tabs: Array<string>;
+  data: Array<{
+    name: string;
+    content: Array<any>;
+  }>;
+  foreground: () => JSX.Element;
+  microBookCard?: boolean;
   noBackButton?: boolean;
+  onBackPress?: () => void;
 }
 
 const TabbedHeader = (props: Props) => {
@@ -89,33 +96,32 @@ const TabbedHeader = (props: Props) => {
           opacity,
         }}
       >
-        <Txt numberOfLines={2} style={Styles.h1}>
-          {props.screenName}
-        </Txt>
-        <BooksOnCard count={21} />
+        {props.foreground()}
       </Animated.View>
     );
   };
 
   const renderContent = (title: string) => {
-    return LibraryBooks.map(
-      (books, _) =>
-        books.name === title &&
-        books.content.map((book, _) => (
-          <View key={book.id}>
-            <BookCard
-              key={book.id}
-              title={book.title}
-              author={book.author}
-              image={book.img}
-              description={book.bookDescription}
-              pages={book.pageCount}
-              rating={book.rating}
-              containerStyle={styles.detailCard}
-              noBadge
-            />
-          </View>
-        ))
+    return props.data.map(
+      (tab, _) =>
+        tab.name === title &&
+        tab.content.map((book, _) =>
+          props.microBookCard ? null /* TODO: Create micro book card A */ : (
+            <View key={book.id}>
+              <BookCard
+                key={book.id}
+                title={book.title}
+                author={book.author}
+                image={book.img}
+                description={book.bookDescription}
+                pages={book.pageCount}
+                rating={book.rating}
+                containerStyle={styles.detailCard}
+                noBadge
+              />
+            </View>
+          )
+        )
     );
   };
 
@@ -132,20 +138,12 @@ const TabbedHeader = (props: Props) => {
     );
   };
 
-  const tabs = [
-    {
-      title: "Continue",
-      content: renderParallax("Continue"),
-    },
-    {
-      title: "Read it later",
-      content: renderParallax("Read it later"),
-    },
-    {
-      title: "Saved",
-      content: renderParallax("Saved"),
-    },
-  ];
+  const tabs = props.tabs.map((tab, _) => {
+    return {
+      title: tab,
+      content: renderParallax(tab),
+    };
+  });
 
   return (
     <>
