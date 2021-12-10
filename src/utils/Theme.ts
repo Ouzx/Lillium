@@ -48,6 +48,7 @@ enum Sizes {
   S = 14,
   M = 18,
   L = 24,
+  XL = 51,
   MINI_IMAGE_WIDTH = 147,
   MINI_IMAGE_HEIGHT = 136,
 }

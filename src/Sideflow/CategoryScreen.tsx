@@ -1,5 +1,5 @@
 import React from "react";
-import { ImageBackground, View } from "react-native";
+import { ImageBackground, View, Text } from "react-native";
 
 import {
   ParallaxHeader,
@@ -7,6 +7,7 @@ import {
   BooksOnCard,
   RatingOnCard,
   AuthorsOnCard,
+  PrimaryButton,
 } from "../Shared";
 import { Colors, Styles, Numbers } from "../utils";
 
@@ -35,6 +36,17 @@ const CategoryScreen = () => {
           containerStyle={{ marginHorizontal: Numbers.margin.S }}
         />
         <AuthorsOnCard count={25} />
+      </View>
+      <View
+        style={{
+          flexDirection: "row",
+          marginTop: Numbers.margin.L,
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <PrimaryButton title={"Subscribe"} onPress={() => {}} />
+        <Text style={Styles.onCardActiveComment}>4.7k+ subscribers</Text>
       </View>
     </View>
   );

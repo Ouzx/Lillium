@@ -1,35 +1,37 @@
 import React from "react";
-import { StyleSheet } from "react-native";
-import { Button } from "react-native-elements";
-import { Numbers } from "../../utils";
+import { StyleSheet, Text, TouchableOpacity, ViewStyle } from "react-native";
+import { Numbers, Colors } from "../../utils";
 
 interface Props {
   title: string;
+  containerStyle?: ViewStyle | ViewStyle[];
   onPress: () => void;
-  Color: string;
 }
 
 const PrimaryButton = (props: Props) => {
   return (
-    <Button
-      title={props.title}
-      containerStyle={styles.buttonContainer}
-      buttonStyle={[styles.button, { backgroundColor: props.Color }]}
+    <TouchableOpacity
       onPress={props.onPress}
-    />
+      style={[styles.container, props.containerStyle]}
+    >
+      <Text style={[{ color: Colors.active }, styles.title]}>
+        {props.title}
+      </Text>
+    </TouchableOpacity>
   );
 };
 
 export default PrimaryButton;
 
 const styles = StyleSheet.create({
-  buttonContainer: {
-    width: "100%",
+  container: {
     borderRadius: Numbers.radius.XL,
-    marginVertical: Numbers.margin.M,
+    height: Numbers.sizes.XL,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: Colors.primary,
   },
-  button: {
-    borderRadius: Numbers.radius.XL,
-    padding: Numbers.padding.XS,
+  title: {
+    marginHorizontal: Numbers.margin.XL,
   },
 });
