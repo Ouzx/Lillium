@@ -1,7 +1,7 @@
 import React from "react";
 import { ImageBackground, View } from "react-native";
 
-import { TabbedHeader, Txt, BooksOnCard } from "../Shared";
+import { ParallaxHeader, Txt, BooksOnCard } from "../Shared";
 import { Colors, Styles } from "../utils";
 
 import { LibraryBooks } from "../Demo";
@@ -26,7 +26,7 @@ const LibraryScreen = () => {
       resizeMode="stretch"
     >
       <View style={{ flex: 1, backgroundColor: Colors.transparentBg }}>
-        <TabbedHeader
+        <ParallaxHeader
           screenName="Library Screen"
           noBackButton
           tabs={tabs}

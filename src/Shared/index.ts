@@ -12,7 +12,7 @@ import RowList from "./Components/RowList";
 import BooksOnCard from "./Components/BooksOnCard";
 import MiniBookCard from "./Components/MiniBookCard";
 import Txt from "./Components/Txt";
-import TabbedHeader from "./Components/TabbedHeader";
+import ParallaxHeader from "./Components/ParallaxHeader";
 import BackButton from "./Components/BackButton";
 
 export {
@@ -30,6 +30,6 @@ export {
   BooksOnCard,
   MiniBookCard,
   Txt,
-  TabbedHeader,
+  ParallaxHeader,
   BackButton,
 };

@@ -27,7 +27,7 @@ interface Props {
   onBackPress?: () => void;
 }
 
-const TabbedHeader = (props: Props) => {
+const ParallaxHeader = (props: Props) => {
   const renderHeader = () => {
     const opacity = scrollY.y.interpolate({
       inputRange: [0, 100],
@@ -195,4 +195,4 @@ const styles = StyleSheet.create({
   headerText: {},
 });
 
-export default TabbedHeader;
+export default ParallaxHeader;
