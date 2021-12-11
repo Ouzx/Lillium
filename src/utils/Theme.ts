@@ -10,6 +10,11 @@ enum Colors {
   secondary = "#FF334B",
   secondaryDark = "#010304",
   transparentBg = "rgba(9, 18, 28, 0.56)",
+  readingBacground = "#E2E2E2",
+  card1 = "#070D15",
+  card2 = "#293340",
+  card3 = "#516580",
+  card4 = "#8191A6",
 }
 
 enum padding {

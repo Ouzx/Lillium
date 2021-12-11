@@ -17,46 +17,19 @@ const ReadingScreen = () => {
     const zed = index % 4;
     switch (zed) {
       case 0:
-        return "#070D15";
+        return Colors.card1;
       case 1:
-        return "#293340";
+        return Colors.card2;
 
       case 2:
-        return "#516580";
+        return Colors.card3;
 
       case 3:
-        return "#8191A6";
+        return Colors.card4;
 
       default:
-        return "#070D15";
+        return Colors.card1;
     }
-  };
-
-  const renderCard = (
-    card: { title: string; content: string },
-    index: number
-  ) => {
-    const bg = interpolateCards(index);
-    const { title, content } = card;
-    return (
-      <View style={[styles.card, { backgroundColor: bg }]}>
-        <Text style={styles.text}>{title}</Text>
-        <Text style={{ fontSize: 13, color: "white", lineHeight: 20 }}>
-          {content}
-        </Text>
-
-        <View
-          style={{
-            flex: 1,
-            position: "absolute",
-            left: "100%",
-            top: "100%",
-          }}
-        >
-          <ShareCards />
-        </View>
-      </View>
-    );
   };
 
   const onSwiped = (propz: any) => {
@@ -68,36 +41,28 @@ const ReadingScreen = () => {
     // this.props.navigation.goBack();
   };
 
+  const renderCard = (
+    card: { title: string; content: string },
+    index: number
+  ) => {
+    const bg = interpolateCards(index);
+    const { title, content } = card;
+    return (
+      <View style={[styles.card, { backgroundColor: bg }]}>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.content}>{content}</Text>
+        <ShareCards style={styles.shareCards} />
+      </View>
+    );
+  };
+
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#E2E2E2" }}>
+    <SafeAreaView style={styles.container}>
       <StatusBar hidden={true} />
       <View>
-        <View
-          style={{
-            top: 0,
-            height: 70,
-            // width: "100%",
-            marginHorizontal: 20,
-            borderBottomLeftRadius: Numbers.radius.M,
-            borderBottomRightRadius: Numbers.radius.M,
-            backgroundColor: Colors.mainBG,
-            padding: 20,
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
+        <View style={styles.header}>
           <BackButton />
-          <Txt
-            numberOfLines={1}
-            style={{
-              fontSize: 18,
-              width: "80%",
-              color: "white",
-              paddingHorizontal: 3,
-              textAlign: "center",
-            }}
-          >
+          <Txt numberOfLines={1} style={styles.headerText}>
             Harry Potter and the Sorcerer's Stonesss
           </Txt>
           <SettingsButton />
@@ -122,38 +87,15 @@ const ReadingScreen = () => {
         />
       </View>
       <View>
-        <View
-          style={{
-            height: 20,
-            width: "20%",
-            alignSelf: "center",
-            borderTopLeftRadius: Numbers.radius.M,
-            borderTopRightRadius: Numbers.radius.M,
-            backgroundColor: Colors.mainBG,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Text style={{ textAlign: "center", color: "white", fontSize: 10 }}>
+        <View style={styles.pageCounter}>
+          <Text style={styles.counterText}>
             {currentIndex + 1}/{Philosophers_Stone.length}
           </Text>
         </View>
-        <View
-          style={{
-            height: 70,
-            // width: "100%",
-            marginHorizontal: 20,
-            borderTopLeftRadius: Numbers.radius.M,
-            borderTopRightRadius: Numbers.radius.M,
-            backgroundColor: Colors.mainBG,
-            flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
+        <View style={styles.footer}>
+          <View style={Styles.alignRow}>
             <Pen />
-            <RiliStop style={{ marginHorizontal: 20 }} />
+            <RiliStop style={{ marginHorizontal: Numbers.margin.M }} />
             <SaveCard />
           </View>
         </View>
@@ -165,17 +107,61 @@ const ReadingScreen = () => {
 export default ReadingScreen;
 
 const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: Colors.readingBacground },
+  header: {
+    top: 0,
+    height: 70,
+    marginHorizontal: 20,
+    borderBottomLeftRadius: Numbers.radius.M,
+    borderBottomRightRadius: Numbers.radius.M,
+    backgroundColor: Colors.mainBG,
+    padding: 20,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  headerText: {
+    fontSize: 18,
+    width: "80%",
+    color: "white",
+    paddingHorizontal: 3,
+    textAlign: "center",
+  },
   card: {
     borderRadius: Numbers.radius.M,
     height: "80%",
     padding: 20,
     position: "relative",
   },
-  text: {
+  title: {
     left: "10%",
     marginBottom: 25,
     textAlign: "left",
     fontSize: 24,
     color: "white",
+  },
+  content: { fontSize: 13, color: Colors.active, lineHeight: 20 },
+  shareCards: { flex: 1, position: "absolute", left: "100%", top: "100%" },
+  pageCounter: {
+    height: 20,
+    width: "20%",
+    alignSelf: "center",
+    borderTopLeftRadius: Numbers.radius.M,
+    borderTopRightRadius: Numbers.radius.M,
+    backgroundColor: Colors.mainBG,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  counterText: { textAlign: "center", color: "white", fontSize: 10 },
+  footer: {
+    height: 70,
+    // width: "100%",
+    marginHorizontal: 20,
+    borderTopLeftRadius: Numbers.radius.M,
+    borderTopRightRadius: Numbers.radius.M,
+    backgroundColor: Colors.mainBG,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
