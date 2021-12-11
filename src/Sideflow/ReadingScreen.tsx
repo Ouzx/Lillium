@@ -10,25 +10,26 @@ import Swiper from "react-native-deck-swiper";
 import { Philosophers_Stone } from "../Demo";
 
 const ReadingScreen = () => {
-  const [swipedAllCards, setSwipedAllCards] = useState(false);
+  //   const [swipedAllCards, setSwipedAllCards] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  //   let swiper;
 
   const interpolateCards = (index: number) => {
     const zed = index % 4;
     switch (zed) {
       case 0:
-        return Colors.card1;
+        return { color: Colors.card1, angle: "0deg", pos: 0 };
       case 1:
-        return Colors.card2;
+        return { color: Colors.card2, angle: "2.75deg", pos: -10 };
 
       case 2:
-        return Colors.card3;
+        return { color: Colors.card3, angle: "-1.75deg", pos: -15 };
 
       case 3:
-        return Colors.card4;
+        return { color: Colors.card4, angle: "1deg", pos: -18 };
 
       default:
-        return Colors.card1;
+        return { color: Colors.card1, angle: "0deg", pos: 0 };
     }
   };
 
@@ -37,7 +38,7 @@ const ReadingScreen = () => {
   };
 
   const onSwipedAllCards = () => {
-    setSwipedAllCards(true);
+    // setSwipedAllCards(true);
     // this.props.navigation.goBack();
   };
 
@@ -45,10 +46,18 @@ const ReadingScreen = () => {
     card: { title: string; content: string },
     index: number
   ) => {
-    const bg = interpolateCards(index);
+    const { color, angle, pos } = interpolateCards(index);
     const { title, content } = card;
     return (
-      <View style={[styles.card, { backgroundColor: bg }]}>
+      <View
+        style={[
+          styles.card,
+          {
+            backgroundColor: color,
+            transform: [{ rotateZ: angle }, { translateY: pos }],
+          },
+        ]}
+      >
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.content}>{content}</Text>
         <ShareCards style={styles.shareCards} />
@@ -70,6 +79,9 @@ const ReadingScreen = () => {
       </View>
       <View style={{ flex: 1 }}>
         <Swiper
+          //   ref={(_swiper) => {
+          //     swiper = _swiper;
+          //   }}
           onSwiped={(index: number) => {
             setCurrentIndex(currentIndex + 1);
             onSwiped(index);
