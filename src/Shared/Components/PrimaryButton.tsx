@@ -32,6 +32,6 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary,
   },
   title: {
-    marginHorizontal: Numbers.margin.XL,
+    marginHorizontal: Numbers.margin.L,
   },
 });

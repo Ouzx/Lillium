@@ -89,7 +89,7 @@ const ParallaxHeader = (props: Props) => {
         style={{
           flex: 1,
           justifyContent: "flex-end",
-          marginBottom: Numbers.margin.L,
+          // marginBottom: Numbers.margin.L,
           padding: Numbers.padding.S,
           opacity,
         }}
@@ -151,7 +151,7 @@ const ParallaxHeader = (props: Props) => {
         tabs={tabs}
         header={renderHeader}
         foreground={renderForeground}
-        parallaxHeight={300}
+        // parallaxHeight={300}
         headerHeight={70}
         rememberTabScrollPosition
         decelerationRate="normal"

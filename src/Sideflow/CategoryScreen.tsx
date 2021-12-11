@@ -7,8 +7,9 @@ import {
   BooksOnCard,
   RatingOnCard,
   AuthorsOnCard,
-  PrimaryButton,
 } from "../Shared";
+
+import Subscribtion from "./Components/Subscribtion";
 import { Colors, Styles, Numbers } from "../utils";
 
 import { CategoryBooks } from "../Demo";
@@ -23,11 +24,13 @@ const CategoryScreen = () => {
       <Txt numberOfLines={2} style={Styles.h1}>
         {SCREEN_NAME}
       </Txt>
+
       <View
         style={{
           flexDirection: "row",
           justifyContent: "flex-start",
           alignItems: "center",
+          paddingLeft: Numbers.padding.XXS,
         }}
       >
         <BooksOnCard count={21} />
@@ -37,17 +40,16 @@ const CategoryScreen = () => {
         />
         <AuthorsOnCard count={25} />
       </View>
-      <View
-        style={{
-          flexDirection: "row",
-          marginTop: Numbers.margin.L,
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
+      <Text
+        style={[
+          Styles.comment,
+          { marginTop: Numbers.margin.XS, paddingLeft: Numbers.padding.XXS },
+        ]}
       >
-        <PrimaryButton title={"Subscribe"} onPress={() => {}} />
-        <Text style={Styles.onCardActiveComment}>4.7k+ subscribers</Text>
-      </View>
+        Heroic genre is a genre of literature that is characterized by the use
+        of heroic fantasy.
+      </Text>
+      <Subscribtion count="4.7k+ subscribers" />
     </View>
   );
 

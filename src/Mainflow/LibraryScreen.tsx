@@ -6,6 +6,8 @@ import { Colors, Styles } from "../utils";
 
 import { LibraryBooks } from "../Demo";
 
+// TODO: Every use should have different description according to the use case
+// TODO: Add descroption.
 const LibraryScreen = () => {
   const tabs = ["Continue", "Read it later", "Saved"];
   const SCREEN_NAME = "Library";
