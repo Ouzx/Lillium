@@ -8,6 +8,7 @@ enum Screens {
   AUTHOR = "Author",
   BOOK = "Book",
   CATEGORY = "Category",
+  READING = "Reading",
 }
 
 enum Stacks {

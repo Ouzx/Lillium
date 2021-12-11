@@ -3,7 +3,7 @@ import { Text, TextStyle } from "react-native";
 
 interface Props {
   numberOfLines: number;
-  children?: string | number;
+  children?: string[] | number[] | string | number;
   style?: TextStyle | TextStyle[];
   mod?: "tail" | "head" | "middle" | "clip";
 }

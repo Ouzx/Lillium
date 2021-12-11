@@ -18,6 +18,10 @@ import AuthorsOnCard from "./Components/AuthorsOnCards";
 import RiliSmall from "./Components/RiliSmall";
 import MicroBookCard from "./Components/MicroBookCard";
 import DownloadButton from "./Components/DownloadButton";
+import ShareCards from "./Components/ShareCards";
+import SettingsButton from "./Components/SettingsButton";
+import * as Icons from "./icons";
+
 export {
   Container,
   Logo,
@@ -39,4 +43,7 @@ export {
   RiliSmall,
   MicroBookCard,
   DownloadButton,
+  ShareCards,
+  SettingsButton,
+  Icons,
 };

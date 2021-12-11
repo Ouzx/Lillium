@@ -5,6 +5,7 @@ import Results from "./Results";
 import LibraryBooks from "./LibraryBooks";
 import CategoryBooks from "./CategoryBooks";
 import Chapters from "./Chapters";
+import Philosophers_Stone from "./Philosopher's Stone";
 
 export {
   BG,
@@ -16,4 +17,5 @@ export {
   LibraryBooks,
   CategoryBooks,
   Chapters,
+  Philosophers_Stone,
 };

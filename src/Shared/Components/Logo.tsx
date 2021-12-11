@@ -1,14 +1,7 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  ViewStyle,
-  TouchableOpacity,
-} from "react-native";
+import { StyleSheet, Text, View, Image, ViewStyle } from "react-native";
 import { Numbers, Colors } from "../../utils";
-import { Ionicons } from "@expo/vector-icons";
+import SettingsButton from "./SettingsButton";
 
 interface Props {
   containerStyle?: ViewStyle | ViewStyle[];
@@ -25,9 +18,7 @@ const Logo = (props: Props) => {
         />
         <Text style={styles.headerText}>lilium</Text>
       </View>
-      <TouchableOpacity>
-        <Ionicons name="settings-outline" size={24} color={Colors.active} />
-      </TouchableOpacity>
+      <SettingsButton />
     </View>
   );
 };

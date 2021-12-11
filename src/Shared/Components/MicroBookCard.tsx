@@ -11,7 +11,7 @@ import { Styles, Numbers, Colors } from "../../utils";
 interface Props {
   id: string;
   title: string;
-  pageCount: number;
+  pageCount: string;
   size: string;
 }
 
