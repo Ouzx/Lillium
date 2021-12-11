@@ -4,6 +4,7 @@ import { Genres } from "./Genres";
 import Results from "./Results";
 import LibraryBooks from "./LibraryBooks";
 import CategoryBooks from "./CategoryBooks";
+import Chapters from "./Chapters";
 
 export {
   BG,
@@ -14,4 +15,5 @@ export {
   Results,
   LibraryBooks,
   CategoryBooks,
+  Chapters,
 };

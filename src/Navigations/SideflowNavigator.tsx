@@ -12,7 +12,7 @@ const SideflowNavigator = () => {
       screenOptions={{
         headerShown: false,
       }}
-      initialRouteName={Screens.CATEGORY}
+      initialRouteName={Screens.BOOK}
     >
       <Stack.Screen name={Screens.CATEGORY} component={CategoryScreen} />
       <Stack.Screen name={Screens.AUTHOR} component={AuthorProfileScreen} />

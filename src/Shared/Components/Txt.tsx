@@ -2,9 +2,10 @@ import React from "react";
 import { Text, TextStyle } from "react-native";
 
 interface Props {
+  numberOfLines: number;
   children?: string | number;
   style?: TextStyle | TextStyle[];
-  numberOfLines: number;
+  mod?: "tail" | "head" | "middle" | "clip";
 }
 
 const Txt = (props: Props) => {
@@ -12,7 +13,7 @@ const Txt = (props: Props) => {
     <Text
       style={props.style}
       numberOfLines={props.numberOfLines}
-      ellipsizeMode="tail"
+      ellipsizeMode={props.mod ? props.mod : "tail"}
     >
       {props.children}
     </Text>

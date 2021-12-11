@@ -15,7 +15,9 @@ import Txt from "./Components/Txt";
 import ParallaxHeader from "./Components/ParallaxHeader";
 import BackButton from "./Components/BackButton";
 import AuthorsOnCard from "./Components/AuthorsOnCards";
-
+import RiliSmall from "./Components/RiliSmall";
+import MicroBookCard from "./Components/MicroBookCard";
+import DownloadButton from "./Components/DownloadButton";
 export {
   Container,
   Logo,
@@ -34,4 +36,7 @@ export {
   ParallaxHeader,
   BackButton,
   AuthorsOnCard,
+  RiliSmall,
+  MicroBookCard,
+  DownloadButton,
 };

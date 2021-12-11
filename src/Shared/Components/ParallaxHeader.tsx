@@ -6,6 +6,7 @@ import StickyParallaxHeader from "react-native-sticky-parallax-header";
 import BookCard from "./BookCard";
 import BackButton from "./BackButton";
 import Logo from "./Logo";
+import MicroBookCard from "./MicroBookCard";
 
 import { Numbers, Styles, Colors } from "../../utils";
 
@@ -104,7 +105,16 @@ const ParallaxHeader = (props: Props) => {
       (tab, _) =>
         tab.name === title &&
         tab.content.map((book, _) =>
-          props.microBookCard ? null /* TODO: Create micro book card A */ : (
+          props.microBookCard ? (
+            <View key={book.id}>
+              <MicroBookCard
+                id={book.id}
+                pageCount={book.pageCount}
+                size={book.size}
+                title={book.title}
+              />
+            </View> /* TODO: Create micro book card A */
+          ) : (
             <View key={book.id}>
               <BookCard
                 key={book.id}

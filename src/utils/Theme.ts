@@ -112,7 +112,6 @@ const Styles = StyleSheet.create({
     color: Colors.active,
     fontSize: Numbers.font.S,
     marginLeft: Numbers.margin.XS,
-    width: "100%",
   },
   pageCounter: {
     color: Colors.nonActive,
